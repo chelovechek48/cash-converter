@@ -1,4 +1,9 @@
 <script setup>
+import { useStore } from 'vuex';
+import SelectCurrency from '@components/SelectCurrency.vue';
+
+const { state } = useStore();
+
 const pagesList = [
   { name: 'home', label: 'главная' },
   { name: 'convert', label: 'конвертация' },
@@ -17,5 +22,9 @@ const pagesList = [
         </li>
       </ul>
     </nav>
+    <SelectCurrency
+      :value="state.selectedCurrency"
+      @change="state.choiceCurrency($event.target.value)"
+    />
   </header>
 </template>
