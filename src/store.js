@@ -19,6 +19,18 @@ const store = createStore({
           this.choiceCurrency(this.defaultCurrency);
         }
       },
+
+      course: undefined,
+      getCourse() {
+        fetch('https://status.neuralgeneration.com/api/currency')
+          .then((response) => response.json())
+          .then((data) => {
+            this.course = data;
+          })
+          .catch(() => {
+            this.course = null;
+          });
+      },
     };
   },
 });

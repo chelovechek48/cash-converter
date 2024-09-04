@@ -7,13 +7,16 @@ const { state } = useStore();
 
 onBeforeMount(() => {
   state.setCurrency();
+  state.getCourse();
 });
 </script>
 
 <template>
   <div>
     <AppHeader />
-    <routerView />
+    <main>
+      <routerView />
+    </main>
   </div>
 </template>
 
