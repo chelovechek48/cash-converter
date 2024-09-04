@@ -40,13 +40,14 @@ const changeCurrency = (index, target, cost) => {
 </script>
 
 <template>
-  <form v-if="state.course">
-    <div v-for="(item, index) in formData" :key="item">
+  <form class="form" v-if="state.course">
+    <div class="form__item" v-for="(item, index) in formData" :key="item">
       <SelectCurrency
         :value="formData[index].currency"
         @change="changeCurrency(index, $event.target.value, formData[index].cost)"
       />
       <input
+        class="form__input"
         type="number" min="0" placeholder="0"
         v-model="formData[index].cost"
         @input="updateCost(index, formData[index].cost)"
@@ -54,3 +55,28 @@ const changeCurrency = (index, target, cost) => {
     </div>
   </form>
 </template>
+
+<style lang="scss">
+.form {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  &__item {
+    background-color: transparent;
+    border: 1px solid gray;
+    display: flex;
+    max-width: 18rem;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  &__input {
+    background-color: transparent;
+    width: 100%;
+    padding: 0.5rem;
+    margin: -0.5rem;
+  }
+}
+</style>

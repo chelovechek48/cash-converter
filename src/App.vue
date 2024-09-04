@@ -14,7 +14,7 @@ onBeforeMount(() => {
 <template>
   <div>
     <AppHeader />
-    <main>
+    <main class="container">
       <routerView />
     </main>
   </div>
@@ -22,4 +22,18 @@ onBeforeMount(() => {
 
 <style lang="scss">
 @import '@styles';
+</style>
+
+<style lang="scss">
+* {
+  font-family: sans-serif;
+  font-size: clamp(1rem, 5vw, 1.125rem);
+  font-weight: 400;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
 </style>
